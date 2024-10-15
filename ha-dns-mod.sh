@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 定义要加入的DNS服务器列表
-new_servers='["dns://8.8.8.8", "dns://1.1.1.1", "dns://223.5.5.5"]'
+# 定义要加入的DNS服务器列表，带有 "dns://" 前缀
+new_servers='["dns://223.5.5.5", "dns://8.8.8.8", "dns://1.1.1.1"]'
 
 # 要修改的文件路径
 dns_file="/usr/share/hassio/dns.json"
@@ -28,7 +28,7 @@ else
 fi
 
 # 使用jq更新servers字段，并将结果写回文件
-sudo jq --argjson servers "$new_servers" '.servers = $servers' "$dns_file" > /tmp/dns.json.tmp && sudo mv /tmp/dns.json.tmp "$dns_fi>
+sudo jq --argjson servers "$new_servers" '.servers = $servers' "$dns_file" > /tmp/dns.json.tmp && sudo mv /tmp/dns.json.tmp "$dns_file"
 
 # 检查jq命令是否成功
 if [ $? -eq 0 ]; then
