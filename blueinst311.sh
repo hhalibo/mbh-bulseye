@@ -5,6 +5,7 @@ echo "Install BlueTooth Drivers for CM311-1A"
 echo
 
 apt update && apt install -y apt-transport-https apparmor udisks2 gpiod lrzsz avahi-daemon bluez bluetooth pulseaudio-module-bluetooth bluez-firmware;
+mv /boot/dtb/amlogic/meson-g12a-s905l3a-cm311.dtb /boot/dtb/amlogic/meson-g12a-s905l3a-cm311.dtb.orig;
 curl -L https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/meson-g12a-cm311.dtb -o /boot/dtb/amlogic/meson-g12a-s905l3a-cm311.dtb;
 apt-get install apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus cifs-utils systemd-journal-remote -y;
 touch /etc/default/grub && echo "systemd.unified_cgroup_hierarchy=false" > /etc/default/grub;
