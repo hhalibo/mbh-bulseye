@@ -25,11 +25,11 @@ if [ -z "$mac_address" ]; then
     exit 1
 fi
 
-# 获取MAC地址的最后8位，并去掉冒号
-new_hostname=$(echo "$mac_address" | tail -c 9 | sed 's/://g')
+# 获取MAC地址的最后8位，并去掉冒号，转换为大写
+new_hostname=$(echo "$mac_address" | tail -c 9 | sed 's/://g' | tr 'a-z' 'A-Z')
 
 # 显示获取的新的主机名
-echo "Setting hostname to the last 8 characters of MAC address: $new_hostname"
+echo "Setting hostname to the last 8 characters of MAC address (in uppercase): $new_hostname"
 
 # 更新/etc/hostname和/etc/hosts文件中的主机名
 current_hostname=$(cat /etc/hostname)
