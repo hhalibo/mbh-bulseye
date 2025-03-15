@@ -5,13 +5,16 @@ echo "Install BlueTooth Drivers for M401A"
 echo
 
 apt update && apt install -y apt-transport-https apparmor udisks2 gpiod lrzsz avahi-daemon bluez bluetooth pulseaudio-module-bluetooth bluez-firmware;
-#mv /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb.orig;
-#curl -L https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/meson-g12a-s905l3a-m401a-bt.dtb -o /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb;
+mv /lib/firmware/rtl_bt/rtl8761b_config.bin /lib/firmware/rtl_bt/rtl8761b_config.bin.orig;
+curl -L https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/rtl8761b_config_2m -o /lib/firmware/rtl_bt/rtl8761b_config.bin;
+mv /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb.orig;
+curl -L https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/meson-g12a-s905l3a-m401a-bt.dtb -o /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb;
+sed -i '/ProtectSystem=full/a ExecStopPost=\/usr\/bin\/env gpioset 0 82=0' /lib/systemd/system/bluetooth.service;
 apt-get install apparmor jq wget curl udisks2 libglib2.0-bin network-manager dbus cifs-utils systemd-journal-remote -y;
 touch /etc/default/grub && echo "systemd.unified_cgroup_hierarchy=false" > /etc/default/grub;
 sed -i 's/swapaccount=1$/& apparmor=1 security=apparmor systemd.unified_cgroup_hierarchy=0/' /boot/uEnv.txt;
-sed -i '1s/^/#/; 1a PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"' /etc/os-release;
-wget https://github.com/home-assistant/os-agent/releases/download/1.6.0/os-agent_1.6.0_linux_aarch64.deb;
+sed -i '1s/^/#/; 1a PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"' /etc/os-release;
+wget https://github.com/home-assistant/os-agent/releases/download/1.7.1/os-agent_1.7.1_linux_aarch64.deb;
 
 cat >> ~/update-hostname.sh <<'EOF'
 #!/bin/bash
