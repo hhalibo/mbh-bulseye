@@ -46,6 +46,11 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     cp -r SmartIR/codes custom_components/smartir;
     rm -rf SmartIR;
 
+    # 克隆并安装 Smartir-Learn
+    git clone https://github.com/smartHomeHub/SmartIR --depth=1;
+    cp -r smartir_learn/custom_components/smartir_learn custom_components;
+    rm -rf SmartIR;
+
     # 克隆并安装 panel_iframe
     git clone https://github.com/shaonianzhentan/panel_iframe --depth=1;
     cp -r panel_iframe/custom_components/panel_iframe custom_components;
