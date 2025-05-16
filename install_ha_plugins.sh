@@ -72,8 +72,8 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     rm -rf hass-localtuya;
 
     # 克隆并安装 XiaomiGateway3
-    git clone https://github.com/AlexxIT/XiaomiGateway3 --depth=1;
-    cp -r XiaomiGateway3/custom_components/xiaomi_gateway3 custom_components;
+    git clone https://github.com/paul159321/XiaomiGateway3 --depth=1;
+    cp -r ./XiaomiGateway3/custom_components/xiaomi_gateway3 custom_components;
     rm -rf XiaomiGateway3;
 
     # 克隆并安装 高德地图
@@ -81,10 +81,10 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     cp -r gaode_maps/custom_components/gaode_maps custom_components;
     rm -rf gaode_maps;
 
-    # 克隆并安装 小米 MIOT Raw
-    git clone https://github.com/lekoOwO/xiaomi_miot_raw --depth=1;
-    cp -r xiaomi_miot_raw/custom_components/xiaomi_miot_raw custom_components;
-    rm -rf xiaomi_miot_raw;
+    # 克隆并安装 小米官方 xiaomi_home
+    git clone https://github.com/XiaoMi/ha_xiaomi_home --depth=1;
+    cp -r ./ha_xiaomi_home/custom_components/xiaomi_home custom_components;
+    rm -rf ha_xiaomi_home
 "
 
 echo "✅ 插件已安装到 Home Assistant 容器内的 custom_components！"
