@@ -19,6 +19,24 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     wget -q -O - https://install.hacs.xyz | bash
 "
 
+echo "✅ 创建额外文件/share/uptime_check.sh"
+
+# 在容器内创建 uptime_check 文件和目录
+docker exec -i "$CONTAINER_NAME" sh -c "cat >> /share/uptime_check.sh" << 'EOF'
+#!/bin/bash
+uptime_seconds=$(cut -d. -f1 /proc/uptime)
+if [ "$uptime_seconds" -lt 200 ]; then
+  echo "on"
+else
+  echo "off"
+fi
+EOF
+
+# 在容器内执行安装命令
+docker exec -it "$CONTAINER_NAME" sh -c "
+    chmod +x /share/uptime_check.sh
+"
+
 echo "✅ 依赖安装完成，修改 Home Assistant 配置文件..."
 
 # 追加内容到 configuration.yaml
