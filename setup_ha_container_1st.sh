@@ -66,6 +66,11 @@ command_line:
       unit_of_measurement: "°C"
       value_template: '{{ value | multiply(0.001) | round(1) }}'
       scan_interval: 10
+  - sensor:
+    - platform: command_line
+      name: Host Uptime State
+      command: "bash /share/uptime_check.sh"
+      scan_interval: 30  # 每30秒检查一次
 EOF
 
 echo "✅ 配置已修改，创建额外文件和目录..."
