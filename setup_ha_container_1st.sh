@@ -67,8 +67,8 @@ command_line:
       value_template: '{{ value | multiply(0.001) | round(1) }}'
       scan_interval: 10
   - sensor:
-    - platform: command_line
       name: Host Uptime State
+      unique_id: 6f03a5d6-c33c-473d-a21b-69fd82ed4b4d
       command: "bash /share/uptime_check.sh"
       scan_interval: 30  # 每30秒检查一次
 EOF
