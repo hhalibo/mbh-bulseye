@@ -14,8 +14,8 @@ EOF
 
 apt update;
 apt upgrade -y;
-apt install mosquitto-clients -y;
-curl -L https://github.com/docker/compose/releases/download/v2.33.1/docker-compose-linux-aarch64 -o /usr/local/bin/docker-compose;
+apt install mosquitto-clients neofetch -y;
+curl -L https://github.com/docker/compose/releases/download/v2.37.0/docker-compose-linux-aarch64 -o /usr/local/bin/docker-compose;
 chmod +x /usr/local/bin/docker-compose;
 
 cat >> /root/docker.sh <<'EOF'
