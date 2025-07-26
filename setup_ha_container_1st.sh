@@ -14,7 +14,6 @@ echo "✅ 进入 Home Assistant Docker 容器并执行命令..."
 # 在容器内执行安装命令
 docker exec -it "$CONTAINER_NAME" sh -c "
     apk add nano && \
-    pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
     pip3 install --upgrade pip setuptools wheel && \
     pip3 install miservice qiniu asgiref pydub && \
     wget -q -O - https://install.hacs.xyz | bash
