@@ -4,7 +4,7 @@ echo
 echo "Install BlueTooth Drivers for M401A"
 echo
 
-apt update && apt install -y apt-transport-https apparmor udisks2 gpiod lrzsz avahi-daemon bluez bluetooth pulseaudio-module-bluetooth bluez-firmware;
+apt install -y apt-transport-https apparmor udisks2 gpiod lrzsz avahi-daemon bluez bluetooth pulseaudio-module-bluetooth bluez-firmware;
 mv /lib/firmware/rtl_bt/rtl8761b_config.bin /lib/firmware/rtl_bt/rtl8761b_config.bin.orig;
 curl -L https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/rtl8761b_config_2m -o /lib/firmware/rtl_bt/rtl8761b_config.bin;
 mv /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb /boot/dtb/amlogic/meson-g12a-s905l3a-m401a.dtb.orig;
