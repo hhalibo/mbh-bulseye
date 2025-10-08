@@ -72,7 +72,7 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     rm -rf hass-localtuya;
 
     # 克隆并安装 XiaomiGateway3
-    git clone https://github.com/paul159321/XiaomiGateway3 --depth=1;
+    git clone https://github.com/AlexxIT/XiaomiGateway3 --depth=1;
     cp -r ./XiaomiGateway3/custom_components/xiaomi_gateway3 custom_components;
     rm -rf XiaomiGateway3;
 
