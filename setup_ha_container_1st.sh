@@ -83,6 +83,7 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     touch known_devices.yaml && \
     touch ui-lovelace.yaml && \
     mkdir -p packages && \
+    mkdir -p custom_components && \
     mkdir -p www
 "
 
