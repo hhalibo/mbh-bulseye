@@ -76,6 +76,11 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     cp -r ./XiaomiGateway3/custom_components/xiaomi_gateway3 custom_components;
     rm -rf XiaomiGateway3;
 
+    # 克隆并安装 Vivo插件
+    git clone https://github.com/vivo/ha_vivohomebridge --depth=1
+    cp -r ./ha_vivohomebridge/custom_components/vivohomebridge custom_components;
+    rm -rf ha_vivohomebridge
+
     # 克隆并安装 高德地图
     git clone https://github.com/dscao/gaode_maps --depth=1;
     cp -r gaode_maps/custom_components/gaode_maps custom_components;
