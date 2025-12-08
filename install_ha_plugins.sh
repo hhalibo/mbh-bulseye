@@ -86,6 +86,11 @@ docker exec -it "$CONTAINER_NAME" sh -c "
     cp -r gaode_maps/custom_components/gaode_maps custom_components;
     rm -rf gaode_maps;
 
+    # 克隆并安装 xiaomi-miot-auto
+    git clone https://github.com/al-one/hass-xiaomi-miot --depth=1;
+    cp -r ./hass-xiaomi-miot/custom_components/xiaomi_miot custom_components;
+    rm -rf hass-xiaomi-miot
+
     # 克隆并安装 小米官方 xiaomi_home
     git clone https://github.com/XiaoMi/ha_xiaomi_home --depth=1;
     cp -r ./ha_xiaomi_home/custom_components/xiaomi_home custom_components;
