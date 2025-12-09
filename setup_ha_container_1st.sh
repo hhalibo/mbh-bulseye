@@ -71,6 +71,16 @@ command_line:
       unique_id: 6f03a5d6-c33c-473d-a21b-69fd82ed4b4d
       command: "bash /share/uptime_check.sh"
       scan_interval: 30  # 每30秒检查一次
+  - sensor:
+      name: ZRAM 使用率
+      command: "awk 'NR==2 {printf(\"%.0f\", $4/$3*100)}' /proc/swaps"
+      unit_of_measurement: "%"
+      scan_interval: 60
+  - sensor:
+      name: 系统可用内存
+      command: "awk '/MemAvailable/ {printf(\"%.0f\", $2/1024)}' /proc/meminfo"
+      unit_of_measurement: "MB"
+      scan_interval: 60
 EOF
 
 echo "✅ 配置已修改，创建额外文件和目录..."
