@@ -186,7 +186,7 @@ EOF
 ############################################
 # whan_4&6gang_switch.yaml
 ############################################
-write_if_not_exists "$BASE_DIR/whan_4&6gang_switch.yaml" << 'EOF'
+write_if_not_exists "$BASE_DIR/whan_4_6gang_switch.yaml" << 'EOF'
 # 4 / 6-gang switch with backlight
 
 - switch:
