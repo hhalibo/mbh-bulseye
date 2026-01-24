@@ -89,6 +89,7 @@ echo "✅ 配置已修改，创建额外文件和目录..."
 docker exec -it "$CONTAINER_NAME" sh -c "
     cd /config && \
     touch lights.yaml && \
+    touch input_boolean.yaml && \
     touch customize.yaml && \
     touch known_devices.yaml && \
     touch ui-lovelace.yaml && \
