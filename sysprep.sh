@@ -9,6 +9,8 @@ echo
 #mv /etc/apt/sources.list /etc/apt/sources.list.orig;
 #cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.orig
 #sed -i 's/\<bullseye-backports\>//g; s/Suites:[ ]*/Suites: /; s/  */ /g' /etc/apt/sources.list.d/debian.sources
+cp -a /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak
+sed -i 's/\bbullseye-backports\b//g; s/Suites:\s\+/Suites: /; s/\s\{2,\}/ /g' /etc/apt/sources.list.d/debian.sources
 
 #cat >> /etc/apt/sources.list <<'EOF'
 #deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main 
