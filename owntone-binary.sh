@@ -25,9 +25,9 @@ log "创建目录：/tmp/upload"
 mkdir -p /tmp/upload
 
 cd /tmp/upload
-wget https://github.com/owntone/owntone-apt/releases/download/rpi_rev27/rpi_repo.tar.gz
+wget https://github.com/owntone/owntone-apt/releases/download/rpi_rev38/rpi_repo.tar.gz
 tar -xzvf rpi_repo.tar.gz
-dpkg -i ./publish/pool/contrib/o/owntone/owntone_28.12.137.gitb612e12-2+bullseye_arm64.deb
+dpkg -i ./publish/pool/contrib/o/owntone/owntone_29.2.141.gitfa607a0-1+bullseye_arm64.deb
 apt --fix-broken install -y
 cd
 
