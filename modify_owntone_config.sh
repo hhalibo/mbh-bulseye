@@ -29,6 +29,7 @@ sed -i 's|directories = { "/srv/music" }|directories = { "/usr/share/hassio/medi
 # 在 'type = "alsa"' 下面添加 'type = "disabled"'
 log "查找 'type = \"alsa\"' 并在下面插入 'type = \"disabled\"'..."
 sed -i '/type = "alsa"/a type = "disabled"' "$CONFIG_FILE"
+sed -i 's/^#\?use-ipv6=.*/use-ipv6=no/' /etc/avahi/avahi-daemon.conf
 
 # 确保修改成功
 if grep -q 'directories = { "/usr/share/hassio/media/music" }' "$CONFIG_FILE" && grep -q 'type = "disabled"' "$CONFIG_FILE"; then
